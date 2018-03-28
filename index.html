@@ -79,7 +79,7 @@ div {
   
   
   <label for="datepicker">Pakeitimo data</label>
-    <input type="text" id="datepicker" onchange="myFunction()">
+    <input type="text" id="datepicker" onchange="readAndDisplayData()">
 	
 	 <label for="paskaita">Kelinta paskaita</label>
 	<div class="pagination" id="paskaita">
@@ -93,11 +93,11 @@ div {
 	  <a href="#">8</a>
 	</div>
 		<label for="fname">Grupė</label>
-    <input type="text" id="grupe" name="firstname" placeholder="Nurodykite grupė pvz: IS15S">
+    <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
 	<label for="fname">Auditorija</label>
-    <input type="text" id="auditorija" name="firstname" placeholder="auditorija pvz 402">
+    <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
 	<label for="fname">Destytojas</label>
-    <input type="text" id="destytojas" name="firstname" placeholder="M. Gzegozevskis">
+    <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
   <select id="country" name="country">
       <option value="australia">Australia</option>
       <option value="canada">Canada</option>
@@ -113,7 +113,6 @@ div {
 	<p id="pakeitimai"></p>
 	
 
-	<button onclick="myFunction()">VIEW DATA</button>
 	
 
 
