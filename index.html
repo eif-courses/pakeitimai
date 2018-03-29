@@ -89,7 +89,7 @@
         }
 
         .right {
-            margin-left: 150px;
+            margin-left: 50px;
             width: auto;
         }
 
@@ -216,10 +216,24 @@
 <script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     $(".pagination a").click(function () {
         $('.pagination a').removeClass('active'); //Clear all checked class on .size
-        $(this).addClass('active'); //Add checked class to current clicked .size
+        $(this).addClass('active'); //Add checked class to current clicked .siz
     });
+
 
 
     // init picker
@@ -246,6 +260,39 @@
     };
     firebase.initializeApp(config);
 
+    $(function() {
+        // Handler for .ready() called.
+
+        const auth = firebase.auth();
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                $("#login").hide();
+                //document.getElementById("btnLogOut").classList.remove('hide');
+            } else {
+                //document.getElementById("btnLogOut").classList.add('hide');
+                $("#login").show();
+            }
+        });
+
+
+    const playersRef = firebase.database().ref("user-posts/");
+
+    playersRef.on('child_removed', snap => {
+
+        console.log('KAZKAS ISTRINE ELEM');
+        readAndDisplayData();
+
+    });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -259,7 +306,7 @@
 
 
             //console.log(cc);
-            var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+            var playersRef = firebase.database().ref("user-posts/");
 
             playersRef.once("value", function (data, prevChildKey) {
                 playersRef.child(''+destID).remove()
@@ -278,6 +325,8 @@
     }
     $(document).on('click', '.btn-remove-key', remove);
 
+    // DOCUMENT READY FUNKCIJA
+    });
 
 
 
@@ -304,7 +353,7 @@
         // Write the new post's data simultaneously in the posts list and the user's post list.
         var updates = {};
         updates['/archive/' + newPostKey] = postData;
-        updates['/user-posts/' + date + '/' + newPostKey] = postData;
+        updates['/user-posts/' + newPostKey] = postData;
 
         return firebase.database().ref().update(updates);
     }
@@ -331,10 +380,13 @@
 
 
 
+
+
+
     function readAndDisplayData() {
 
         document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
-        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+        var playersRef = firebase.database().ref("user-posts/");
 
 
         playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
@@ -345,6 +397,7 @@
             pakeitimaiDiv.innerHTML += '<tr><td>'+newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button></td></tr>' + '\n';
 
         });
+
 
 //        $("button#" + data.key).click(function () {
 //
@@ -359,7 +412,7 @@
     function showCurrentChanges() {
 
 
-        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+        var playersRef = firebase.database().ref("user-posts/");
 
 
         $("#del").click(function () {
@@ -399,20 +452,6 @@
 
 
 </script>
-
-<script>
-    const auth = firebase.auth();
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            $("#login").hide();
-            //document.getElementById("btnLogOut").classList.remove('hide');
-        } else {
-            //document.getElementById("btnLogOut").classList.add('hide');
-            $("#login").show();
-        }
-    });
-</script>
-
 
 <script>
 
