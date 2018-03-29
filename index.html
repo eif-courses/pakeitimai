@@ -8,354 +8,356 @@
     <link rel="stylesheet" href="css/pikaday.css">
     <link rel="stylesheet" href="css/site.css">
 
-<style>
-input[type=text], input[type=password], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+    <style>
+        input[type=text], input[type=password], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-input[type=button] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=button]:hover {
-    background-color: #45a049;
-}
-
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-
-
-.pagination {
-    display: inline-block;
-	margin-left: -22px;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-}
-
-.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
+        input[type=button] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button{
+            width: auto;
+            background-color: red;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
 
+        input[type=button]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .pagination {
+            display: inline-block;
+            margin-left: -22px;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
 
 
-</style>
+    </style>
 
 </head>
 <body>
 
-<h3>Using CSS to style an HTML Form</h3>
-
-
-
 
 <div id="main" style="width:450px; margin:auto;">
 
-  <form>
-  
-  
-  <label for="datepicker">Pakeitimo data</label>
-    <input type="text" id="datepicker" onchange="readAndDisplayData()">
-	
-	 <label for="paskaita">Kelinta paskaita</label>
-	<div class="pagination" id="paskaita">
-	  <a href="#"class="active">1</a>
-	  <a href="#">2</a>
-	  <a href="#">3</a>
-	  <a href="#">4</a>
-	  <a href="#">5</a>
-	  <a href="#">6</a>
-	  <a href="#">7</a>
-	  <a href="#">8</a>
-	</div>
-		<label for="grupe">Grupė</label>
-    <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
-	<label for="auditorija">Auditorija</label>
-    <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
-	<label for="destytojas">Destytojas</label>
-    <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
-    <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
-	<br/>
-	<br/>
-		<input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
+    <form>
+
+
+        <label for="datepicker">Pakeitimo data</label>
+        <input type="text" id="datepicker" onchange="readAndDisplayData()">
+
+        <label for="paskaita">Kelinta paskaita</label>
+        <div class="pagination" id="paskaita">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">7</a>
+            <a href="#">8</a>
+        </div>
+        <label for="grupe">Grupė</label>
+        <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
+        <label for="auditorija">Auditorija</label>
+        <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
+        <label for="destytojas">Destytojas</label>
+        <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
+        <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
+        <br/>
+        <br/>
+        <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
+    </form>
 </div>
 <p id="pakeitimai"></p>
 
 
-
-
-
-
 <div style="width:450px; margin:auto;" id="login">
-	
-	<form>
-	<label for="prisijungimas">Prisijungimas</label>
-    <input type="text" id="prisijungimas" name="prisijungimas" placeholder="" value="eif@viko.lt">
-	<label for="slaptazodis">Slaptažodis</label>
-    <input type="password" id="slaptazodis" name="slaptazodis" placeholder="iveskite slapazodi...">
-    <input type="button" id="btnLogin" value="Prisijungti" onclick="prisijungti()">
-	<input type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
-	</form>
 
-
-
-
-
-
-	
-
-	
-
-	
-
+    <form>
+        <label for="prisijungimas">Prisijungimas</label>
+        <input type="text" id="prisijungimas" name="prisijungimas" placeholder="" value="eif@viko.lt">
+        <label for="slaptazodis">Slaptažodis</label>
+        <input type="password" id="slaptazodis" name="slaptazodis" placeholder="iveskite slapazodi...">
+        <input type="button" id="btnLogin" value="Prisijungti" onclick="prisijungti()">
+    </form>
+</div>
 
 
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
- <script src="pikaday.js"></script>
-
-	
-
-
-<script>
-  
-  
-  $(".pagination a").click(function(){
-    $('.pagination a').removeClass('active'); //Clear all checked class on .size
-    $(this).addClass('active'); //Add checked class to current clicked .size
- });
-    $("#del").click(function(){
-    showCurrentChanges();
- });
-  
-  // init picker 
-  
-   var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker'),
-        firstDay: 1,
-        minDate: new Date(),
-        maxDate: new Date(2020, 12, 31),
-        yearRange: [2018,2020]
-    });
-  
-  
-  // Initialize Firebase
-  
-  var config = {
-    apiKey: "AIzaSyCRYVIHl_orktaBMwsmlQtMcOaeGO0FTQI",
-    authDomain: "eif-courses.firebaseapp.com",
-    databaseURL: "https://eif-courses.firebaseio.com",
-    projectId: "eif-courses",
-    storageBucket: "eif-courses.appspot.com",
-    messagingSenderId: "535363326769"
-  };
-  firebase.initializeApp(config);
-  
-  var pakeitimai = document.getElementById('pakeitimai');
-  var dbRef = firebase.database().ref().child('text');
-  dbRef.on('value', snap => pakeitimai.innerText = snap.val());
-  
-   function writeNewPost(date, destytojas, auditorija, grupe, paskaita) {
-  // A post entry.
-  var postData = {
-    date: date,
-    destytojas: destytojas,
-    auditorija: auditorija,
-    grupe: grupe,
-    starCount: 0,
-    paskaita: paskaita
-  };
-
-  // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('posts').push().key;
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + date + '/' + newPostKey] = postData;
-
-  return firebase.database().ref().update(updates);
-}
-function readAndDisplayData(){
-
-
-document.getElementById("pakeitimai").innerText = "";
-
-var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString('YYYY-MM-DD'));
- playersRef.on("child_added", function(data, prevChildKey) {
-   var newPlayer = data.val();
-   
-   var pakeitimaiDiv = document.getElementById("pakeitimai");
-  
-   
-   pakeitimaiDiv.innerHTML += newPlayer.paskaita+' '+newPlayer.grupe+ ' '+newPlayer.destytojas+' ' +newPlayer.auditorija +' '+ newPlayer.date + ' '+ '<button id="del">'+ data.key +'</button><br/>'+ '\n';
- 
-
-
- //  console.log("name: " + newPlayer.destytojas);
-  // console.log("age: " + newPlayer);
-  // console.log("number: " + newPlayer.number);
- //  console.log("Previous Player: " + prevChildKey);
-});
-}
-
-
-function showCurrentChanges(){
-	
-	
-	
-	
-	
-	
-		var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString('YYYY-MM-DD'));
-
-		
-		
-		$("#del").click(function(){
-		 playersRef.on("child_added", function(data, prevChildKey) {
-			if($("#del").text() === data.key){
-		
-			playersRef.child(data.key).remove()
-			  .then(function() {
-				console.log("Remove succeeded.");
-				readAndDisplayData();
-				
-			  })
-			  .catch(function(error) {
-				console.log("Remove failed: " + error.message)
-			  });
-	        }
-			  
-		});
-	
-	});
-	
-	
-	
-	
-	
-/*	var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString('YYYY-MM-DD'));
-	playersRef.on("child_removed", function(data, prevChildKey) {
-	
-	
-	   var key = $("#del").text();
-    $("#del").click(function(){
-    playersRef.orderByChild(''+data.key).equalTo(key)
-    .once('value').then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-        //remove each child
-        ref.child(childSnapshot.key).remove();
-    });
-});
-});
-});
-*/
-}
- 
- function myFunction(){
-	
-	var auditorija = document.getElementById("auditorija").value;
-	var destytojas = document.getElementById("destytojas").value;
-	var grupe = document.getElementById("grupe").value;
-	var paskaita =  $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
-	var data = picker.toString('YYYY-MM-DD');
-	writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, paskaita);
-
-	//alert(picker.toString('YYYY-MM-DD'));
-    readAndDisplayData();
-  // ...
-  
-  
-  }
-
-
-  
-</script>
-
-	<script> 
-	    const auth = firebase.auth();
-		firebase.auth().onAuthStateChanged(user=>{ 
-		  if(user){
-		  $("#login").hide();
-			document.getElementById("btnLogOut").classList.remove('hide');
-		  } else{
-			document.getElementById("btnLogOut").classList.add('hide');
-			  $("#login").show();
-		  }
-		});
-</script>
-
-
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="pikaday.js"></script>
 
 
 <script>
 
-function prisijungti(){
 
-document.getElementById("btnLogin").addEventListener('click', e=>{
-  const email = document.getElementById("prisijungimas").value;
-  const pass = document.getElementById("slaptazodis").value;
-  const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
-  console.log('logged in');
-  
-  promise.catch(e=>{ console.log(e.massage)});
-});
+    $(".pagination a").click(function () {
+        $('.pagination a').removeClass('active'); //Clear all checked class on .size
+        $(this).addClass('active'); //Add checked class to current clicked .size
+    });
 
-}
-function atsijungti(){
-document.getElementById("btnLogOut").addEventListener('click', e=>{
-  firebase.auth().signOut();
-  console.log('logged out');
-});
-}
+
+    // init picker
+
+    var picker = new Pikaday(
+        {
+            field: document.getElementById('datepicker'),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2070, 12, 31),
+            yearRange: [2018, 2020]
+        });
+
+
+    // Initialize Firebase
+
+    var config = {
+        apiKey: "AIzaSyCRYVIHl_orktaBMwsmlQtMcOaeGO0FTQI",
+        authDomain: "eif-courses.firebaseapp.com",
+        databaseURL: "https://eif-courses.firebaseio.com",
+        projectId: "eif-courses",
+        storageBucket: "eif-courses.appspot.com",
+        messagingSenderId: "535363326769"
+    };
+    firebase.initializeApp(config);
+
+
+
+
+
+    var remove = function(e){
+        e.preventDefault();
+       // e.stopPropogation();
+       // var key = $(this).data('key');
+        var destID = this.id;  // iraso id
+        if(confirm('Ar tikrai norite ištrinti šį įrašą?')){
+
+
+            //console.log(cc);
+            var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+
+            playersRef.once("value", function (data, prevChildKey) {
+                playersRef.child(''+destID).remove()
+                    .then(function () {
+                        console.log("Remove succeeded.");
+                        readAndDisplayData();
+
+                    })
+                    .catch(function (error) {
+                        console.log("Remove failed: " + error.message)
+                    });
+
+            });
+           // firebase.database().ref("movies").child(key).remove();
+        }
+    }
+    $(document).on('click', '.btn-remove-key', remove);
+
+
+
+
+
+
+    //var pakeitimai = document.getElementById('pakeitimai');
+    //var dbRef = firebase.database().ref().child('text');
+    // dbRef.on('value', snap => pakeitimai.innerText = snap.val());
+
+    function writeNewPost(date, destytojas, auditorija, grupe, paskaita) {
+        // A post entry.
+        var postData = {
+            date: date,
+            destytojas: destytojas,
+            auditorija: auditorija,
+            grupe: grupe,
+            starCount: 0,
+            paskaita: paskaita
+        };
+
+        // Get a key for a new Post.
+        var newPostKey = firebase.database().ref().child('archive').push().key;
+
+        // Write the new post's data simultaneously in the posts list and the user's post list.
+        var updates = {};
+        updates['/archive/' + newPostKey] = postData;
+        updates['/user-posts/' + date + '/' + newPostKey] = postData;
+
+        return firebase.database().ref().update(updates);
+    }
+
+    function deleteFromList(pakeitimo_id) {
+        console.log(pakeitimo_id);
+        // init remove event
+        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+
+        playersRef.once("value", function (data, prevChildKey) {
+            playersRef.child(pakeitimo_id).remove()
+                .then(function () {
+                    console.log("Remove succeeded.");
+                    readAndDisplayData();
+
+                })
+                .catch(function (error) {
+                    console.log("Remove failed: " + error.message)
+                });
+
+        });
+
+    }
+
+
+
+    function readAndDisplayData() {
+
+        document.getElementById("pakeitimai").innerText = "";
+        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+
+
+        playersRef.on("child_added", function (data, prevChildKey) {
+            var newPlayer = data.val();
+
+            var pakeitimaiDiv = document.getElementById("pakeitimai");
+            pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
+
+        });
+
+//        $("button#" + data.key).click(function () {
+//
+//            deleteMessages('' + $("button#" + data.key).text());
+//            alert("Handler for .click() called." + $("button#" + data.key).text());
+//            console.log('HELOOOOOOOOOOOOOOOOOOOOOO' + $("button#" + data.key).text());
+//        });
+
+    }
+
+
+    function showCurrentChanges() {
+
+
+        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
+
+
+        $("#del").click(function () {
+            playersRef.on("child_added", function (data, prevChildKey) {
+                if ($("#del").text() === data.key) {
+
+                    playersRef.child(data.key).remove()
+                        .then(function () {
+                            console.log("Remove succeeded.");
+                            readAndDisplayData();
+
+                        })
+                        .catch(function (error) {
+                            console.log("Remove failed: " + error.message)
+                        });
+                }
+
+            });
+
+        });
+    }
+    function myFunction() {
+
+        var auditorija = document.getElementById("auditorija").value;
+        var destytojas = document.getElementById("destytojas").value;
+        var grupe = document.getElementById("grupe").value;
+        var paskaita = $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
+        var data = picker.toString('YYYY-MM-DD');
+        writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, paskaita);
+
+        //alert(picker.toString('YYYY-MM-DD'));
+        readAndDisplayData();
+        // ...
+
+
+    }
+
+
+</script>
+
+<script>
+    const auth = firebase.auth();
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            $("#login").hide();
+            //document.getElementById("btnLogOut").classList.remove('hide');
+        } else {
+            //document.getElementById("btnLogOut").classList.add('hide');
+            $("#login").show();
+        }
+    });
 </script>
 
 
+<script>
+
+    function prisijungti() {
+
+        document.getElementById("btnLogin").addEventListener('click', e => {
+            const email = document.getElementById("prisijungimas").value;
+            const pass = document.getElementById("slaptazodis").value;
+            const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+            console.log('logged in');
+
+            promise.catch(e => {
+                console.log(e.massage)
+            });
+        });
+    }
+
+    function atsijungti() {
+        document.getElementById("btnLogOut").addEventListener('click', e => {
+            firebase.auth().signOut();
+            console.log('logged out');
+        });
+    }
+</script>
 
 
-
-
-	
-
-
-
-
-
-
-
-
-   
-
-	
 </body>
 </html>
