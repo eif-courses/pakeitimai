@@ -108,7 +108,7 @@ div {
 	<br/>
 		<input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
 </div>
-
+<p id="pakeitimai"></p>
 
 
 
@@ -132,7 +132,7 @@ div {
 
 
 	
-<p id="pakeitimai"></p>
+
 	
 
 	
@@ -153,7 +153,9 @@ div {
     $('.pagination a').removeClass('active'); //Clear all checked class on .size
     $(this).addClass('active'); //Add checked class to current clicked .size
  });
-  
+    $("#del").click(function(){
+    showCurrentChanges();
+ });
   
   // init picker 
   
@@ -216,21 +218,68 @@ var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString
    var pakeitimaiDiv = document.getElementById("pakeitimai");
   
    
-   pakeitimaiDiv.innerText += newPlayer.paskaita+' '+newPlayer.grupe+ ' '+newPlayer.destytojas+' ' +newPlayer.auditorija +' '+ newPlayer.date + '\n';
-   
-   
-   
-   
-   console.log("name: " + newPlayer.destytojas);
+   pakeitimaiDiv.innerHTML += newPlayer.paskaita+' '+newPlayer.grupe+ ' '+newPlayer.destytojas+' ' +newPlayer.auditorija +' '+ newPlayer.date + ' '+ '<button id="del">'+ data.key +'</button><br/>'+ '\n';
+ 
+
+
+ //  console.log("name: " + newPlayer.destytojas);
   // console.log("age: " + newPlayer);
   // console.log("number: " + newPlayer.number);
-   console.log("Previous Player: " + prevChildKey);
+ //  console.log("Previous Player: " + prevChildKey);
 });
 }
 
 
 function showCurrentChanges(){
+	
+	
+	
+	
+	
+	
+		var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString('YYYY-MM-DD'));
 
+		
+		
+		$("#del").click(function(){
+		 playersRef.on("child_added", function(data, prevChildKey) {
+			if($("#del").text() === data.key){
+		
+			playersRef.child(data.key).remove()
+			  .then(function() {
+				console.log("Remove succeeded.");
+				readAndDisplayData();
+				
+			  })
+			  .catch(function(error) {
+				console.log("Remove failed: " + error.message)
+			  });
+	        }
+			  
+		});
+	
+	});
+	
+	
+	
+	
+	
+/*	var playersRef = firebase.database().ref("user-posts/").child(''+picker.toString('YYYY-MM-DD'));
+	playersRef.on("child_removed", function(data, prevChildKey) {
+	
+	
+	   var key = $("#del").text();
+    $("#del").click(function(){
+    playersRef.orderByChild(''+data.key).equalTo(key)
+    .once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+        //remove each child
+        ref.child(childSnapshot.key).remove();
+    });
+});
+});
+});
+*/
 }
  
  function myFunction(){
