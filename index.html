@@ -358,30 +358,6 @@
         return firebase.database().ref().update(updates);
     }
 
-    function deleteFromList(pakeitimo_id) {
-        console.log(pakeitimo_id);
-        // init remove event
-        var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
-
-        playersRef.once("value", function (data, prevChildKey) {
-            playersRef.child(pakeitimo_id).remove()
-                .then(function () {
-                    console.log("Remove succeeded.");
-                    readAndDisplayData();
-
-                })
-                .catch(function (error) {
-                    console.log("Remove failed: " + error.message)
-                });
-
-        });
-
-    }
-
-
-
-
-
 
     function readAndDisplayData() {
 
@@ -409,31 +385,7 @@
     }
 
 
-    function showCurrentChanges() {
 
-
-        var playersRef = firebase.database().ref("user-posts/");
-
-
-        $("#del").click(function () {
-            playersRef.on("child_added", function (data, prevChildKey) {
-                if ($("#del").text() === data.key) {
-
-                    playersRef.child(data.key).remove()
-                        .then(function () {
-                            console.log("Remove succeeded.");
-                            readAndDisplayData();
-
-                        })
-                        .catch(function (error) {
-                            console.log("Remove failed: " + error.message)
-                        });
-                }
-
-            });
-
-        });
-    }
     function myFunction() {
 
         var auditorija = document.getElementById("auditorija").value;
