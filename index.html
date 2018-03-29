@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/site.css">
 
 <style>
-input[type=text], select {
+input[type=text], input[type=password], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -19,7 +19,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=button] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -30,7 +30,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=button]:hover {
     background-color: #45a049;
 }
 
@@ -69,12 +69,17 @@ div {
 
 
 </style>
+
 </head>
 <body>
 
 <h3>Using CSS to style an HTML Form</h3>
 
-<div style="width:450px; margin:auto;">
+
+
+
+<div id="main" style="width:450px; margin:auto;">
+
   <form>
   
   
@@ -92,45 +97,63 @@ div {
 	  <a href="#">7</a>
 	  <a href="#">8</a>
 	</div>
-		<label for="fname">Grupė</label>
+		<label for="grupe">Grupė</label>
     <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
-	<label for="fname">Auditorija</label>
+	<label for="auditorija">Auditorija</label>
     <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
-	<label for="fname">Destytojas</label>
+	<label for="destytojas">Destytojas</label>
     <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
-  <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
-    <input type="submit" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
+    <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
+	<br/>
+	<br/>
+		<input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
 </div>
 
+
+
+
+
+
+
+<div style="width:450px; margin:auto;" id="login">
 	
-  
+	<form>
+	<label for="prisijungimas">Prisijungimas</label>
+    <input type="text" id="prisijungimas" name="prisijungimas" placeholder="" value="eif@viko.lt">
+	<label for="slaptazodis">Slaptažodis</label>
+    <input type="password" id="slaptazodis" name="slaptazodis" placeholder="iveskite slapazodi...">
+    <input type="button" id="btnLogin" value="Prisijungti" onclick="prisijungti()">
+	<input type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
+	</form>
+
+
+
+
+
 
 	
-	<p id="pakeitimai"></p>
+<p id="pakeitimai"></p>
 	
 
 	
 
 
 
-
-
-
-
-
-
-
-
-    <script src="pikaday.js"></script>
-
-	
-	
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="pikaday.js"></script>
+
+	
+
+
 <script>
+  
+  
+  $(".pagination a").click(function(){
+    $('.pagination a').removeClass('active'); //Clear all checked class on .size
+    $(this).addClass('active'); //Add checked class to current clicked .size
+ });
+  
   
   // init picker 
   
@@ -215,9 +238,9 @@ function showCurrentChanges(){
 	var auditorija = document.getElementById("auditorija").value;
 	var destytojas = document.getElementById("destytojas").value;
 	var grupe = document.getElementById("grupe").value;
-	var paskaita = document.getElementById("paskaita").value;
+	var paskaita =  $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
 	var data = picker.toString('YYYY-MM-DD');
-	writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, 1);
+	writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, paskaita);
 
 	//alert(picker.toString('YYYY-MM-DD'));
     readAndDisplayData();
@@ -229,6 +252,60 @@ function showCurrentChanges(){
 
   
 </script>
+
+	<script> 
+	    const auth = firebase.auth();
+		firebase.auth().onAuthStateChanged(user=>{ 
+		  if(user){
+		  $("#login").hide();
+			document.getElementById("btnLogOut").classList.remove('hide');
+		  } else{
+			document.getElementById("btnLogOut").classList.add('hide');
+			  $("#login").show();
+		  }
+		});
+</script>
+
+
+
+
+<script>
+
+function prisijungti(){
+
+document.getElementById("btnLogin").addEventListener('click', e=>{
+  const email = document.getElementById("prisijungimas").value;
+  const pass = document.getElementById("slaptazodis").value;
+  const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+  console.log('logged in');
+  
+  promise.catch(e=>{ console.log(e.massage)});
+});
+
+}
+function atsijungti(){
+document.getElementById("btnLogOut").addEventListener('click', e=>{
+  firebase.auth().signOut();
+  console.log('logged out');
+});
+}
+</script>
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+   
 
 	
 </body>
