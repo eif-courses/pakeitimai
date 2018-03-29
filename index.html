@@ -370,7 +370,7 @@
 
             var pakeitimaiDiv = document.getElementById("pakeitimai");
            // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
-            pakeitimaiDiv.innerHTML += '<tr><td>'+newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date.substring(7,15); + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button></td></tr>' + '\n';
+            pakeitimaiDiv.innerHTML += '<tr><td>'+newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button></td></tr>' + '\n';
 
         });
 
@@ -385,7 +385,7 @@
         var destytojas = document.getElementById("destytojas").value;
         var grupe = document.getElementById("grupe").value;
         var paskaita = $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
-        
+
         writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, paskaita);
 
         //alert(picker.toString('YYYY-MM-DD'));
