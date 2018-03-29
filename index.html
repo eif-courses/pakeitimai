@@ -77,56 +77,135 @@
         }
 
 
+        /* Create two unequal columns that floats next to each other */
+        .column {
+            float: left;
+
+            /* Should be removed. Only for demonstration */
+        }
+
+        .left {
+            width: 450px;
+        }
+
+        .right {
+            margin-left: 150px;
+            width: auto;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        #pakeitimai {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        #pakeitimai td, #pakeitimai th {
+            border: 1px solid #ddd;
+            font-size: 12pt;
+        }
+
+        #pakeitimai tr:nth-child(even){background-color: #f2f2f2;}
+
+        #pakeitimai tr:hover {background-color: #ddd;}
+
+        #pakeitimai th {
+
+            text-align: left;
+            font-size:20pt;
+            background-color: #3f69b5;
+            color: white;
+        }
+
+
+
     </style>
 
 </head>
 <body>
 
-
-<div id="main" style="width:450px; margin:auto;">
-
-    <form>
+<div class="row">
+    <div class="column left">
 
 
-        <label for="datepicker">Pakeitimo data</label>
-        <input type="text" id="datepicker" onchange="readAndDisplayData()">
+            <form>
 
-        <label for="paskaita">Kelinta paskaita</label>
-        <div class="pagination" id="paskaita">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">7</a>
-            <a href="#">8</a>
+
+                <label for="datepicker">Pakeitimo data</label>
+                <input type="text" id="datepicker" onchange="readAndDisplayData()">
+
+                <label for="paskaita">Kelinta paskaita</label>
+                <div class="pagination" id="paskaita">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                </div>
+                <label for="grupe">Grupė</label>
+                <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
+                <label for="auditorija">Auditorija</label>
+                <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
+                <label for="destytojas">Destytojas</label>
+                <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
+                <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
+                <br/>
+                <br/>
+                <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
+            </form>
         </div>
-        <label for="grupe">Grupė</label>
-        <input type="text" id="grupe" name="grupe" placeholder="Nurodykite grupė pvz: IS15S">
-        <label for="auditorija">Auditorija</label>
-        <input type="text" id="auditorija" name="auditorija" placeholder="auditorija pvz 402">
-        <label for="destytojas">Destytojas</label>
-        <input type="text" id="destytojas" name="destytojas" placeholder="M. Gzegozevskis">
-        <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
-        <br/>
-        <br/>
-        <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
-    </form>
+
+
+
+    <div class="column right">
+
+        <table id="pakeitimai">
+
+
+        </table>
+
+
+        <div style="width:450px; margin:auto;" id="login">
+
+            <form>
+                <label for="prisijungimas">Prisijungimas</label>
+                <input type="text" id="prisijungimas" name="prisijungimas" placeholder="" value="eif@viko.lt">
+                <label for="slaptazodis">Slaptažodis</label>
+                <input type="password" id="slaptazodis" name="slaptazodis" placeholder="iveskite slapazodi...">
+                <input type="button" id="btnLogin" value="Prisijungti" onclick="prisijungti()">
+            </form>
+        </div>
+
+
+
+    </div>
 </div>
-<p id="pakeitimai"></p>
 
 
-<div style="width:450px; margin:auto;" id="login">
 
-    <form>
-        <label for="prisijungimas">Prisijungimas</label>
-        <input type="text" id="prisijungimas" name="prisijungimas" placeholder="" value="eif@viko.lt">
-        <label for="slaptazodis">Slaptažodis</label>
-        <input type="password" id="slaptazodis" name="slaptazodis" placeholder="iveskite slapazodi...">
-        <input type="button" id="btnLogin" value="Prisijungti" onclick="prisijungti()">
-    </form>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -254,15 +333,16 @@
 
     function readAndDisplayData() {
 
-        document.getElementById("pakeitimai").innerText = "";
+        document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
         var playersRef = firebase.database().ref("user-posts/").child('' + picker.toString('YYYY-MM-DD'));
 
 
-        playersRef.on("child_added", function (data, prevChildKey) {
+        playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
             var newPlayer = data.val();
 
             var pakeitimaiDiv = document.getElementById("pakeitimai");
-            pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
+           // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
+            pakeitimaiDiv.innerHTML += '<tr><td>'+newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button></td></tr>' + '\n';
 
         });
 
