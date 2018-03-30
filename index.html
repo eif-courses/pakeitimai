@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Eif pakeitimai</title>
     <meta name="author" content="David Bushell">
@@ -370,11 +370,11 @@
 
             var pakeitimaiDiv = document.getElementById("pakeitimai");
            // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
-            pakeitimaiDiv.innerHTML += '<tr><td>'+newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button></td></tr>' + '\n';
 
+            if(newPlayer.date === picker.toString('YYYY-MM-DD')) {
+                pakeitimaiDiv.innerHTML += '<tr><td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"' + 'id="' + data.key + '"> Ištrinti' + '</button></td></tr>' + '\n';
+            }
         });
-
-
     }
 
 
