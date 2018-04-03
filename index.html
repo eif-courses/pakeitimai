@@ -169,11 +169,6 @@
                 <br/>
                 <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
 
-
-
-
-
-
             </form>
         </div>
 
@@ -203,27 +198,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="pikaday.js"></script>
@@ -251,7 +225,7 @@ for (let i = 0; i < dest.length; i++) {
 aud.sort();
 
 for (let j = 0; j < aud.length; j++) {
-    console.log(aud[j]);
+  //  console.log(aud[j]);
     let optionNode2 = document.createElement("option");
 
     // Set the value
@@ -263,7 +237,7 @@ for (let j = 0; j < aud.length; j++) {
 }
 
 for (let j = 0; j < grupes.length; j++) {
-    console.log(grupes[j]);
+  //  console.log(grupes[j]);
     let optionNode2 = document.createElement("option");
 
     // Set the value
@@ -273,28 +247,6 @@ for (let j = 0; j < grupes.length; j++) {
     // Add the optionNode to the datalist
     document.getElementById("grupes").appendChild(optionNode2);
 }
-
-
-
-
-//const optionNode = document.createElement("option");
-
-
-
-// Set the value
-//optionNode.value = "huge";
-
-// create a text node and append it to the option element
-//optionNode.appendChild(document.createTextNode("$50 USD"));
-
-// Add the optionNode to the datalist
-//document.getElementById("hosting-plan").appendChild(optionNode);
-
-
-
-
-
-
 
     $(".pagination a").click(function () {
         $('.pagination a').removeClass('active'); //Clear all checked class on .size
@@ -351,19 +303,6 @@ for (let j = 0; j < grupes.length; j++) {
 
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     let remove = function(e){
         e.preventDefault();
        // e.stopPropogation();
@@ -392,17 +331,8 @@ for (let j = 0; j < grupes.length; j++) {
     };
     $(document).on('click', '.btn-remove-key', remove);
 
-    // DOCUMENT READY FUNKCIJA
-
     });
 
-
-
-
-
-    //var pakeitimai = document.getElementById('pakeitimai');
-    //var dbRef = firebase.database().ref().child('text');
-    // dbRef.on('value', snap => pakeitimai.innerText = snap.val());
 
 </script>
 <script>
@@ -434,7 +364,6 @@ for (let j = 0; j < grupes.length; j++) {
         document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
         const playersRef = firebase.database().ref("user-posts/");
 
-
         playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
             let newPlayer = data.val();
 
@@ -447,33 +376,17 @@ for (let j = 0; j < grupes.length; j++) {
         });
     }
 
-
-
     function myFunction() {
 
         let auditorija = document.getElementById("auditorija").value;
         let destytojas = document.getElementById("destytojai").value;
         let grupe = document.getElementById("grupe").value;
         let paskaita = $('div#paskaita.pagination a.active').text(); //document.getElementById("paskaita").value;
-
         writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, grupe, paskaita);
 
-        //alert(picker.toString('YYYY-MM-DD'));
         readAndDisplayData();
-        // ...
-
 
     }
-
-
-
-
-
-
-
-
-
-
     function prisijungti() {
 
         document.getElementById("btnLogin").addEventListener('click', e => {
