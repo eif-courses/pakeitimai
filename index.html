@@ -330,7 +330,8 @@
 <script>
 
 
-const dest = ["Lekt. M. Baltramaitienė","Lekt. V. Baltrūnienė","doc. G. Bražiūnas","Asist. S. Brusokaitė","Lekt. S. Bučys","Lekt. R. Čenienė","Lekt. J. Čivilis","Lekt. A. Danilevičiūtė","Lekt. J. Daukševič","Lekt. G. Dmitrijev","Lekt. V. Dubovskaja","Lekt. E. Garla","Lekt. E. Gasiūnienė","Lekt. M. Gžegoževskis","Lekt. J. Helsvig","Lekt. J. Jablonskienė","Lekt. V. Judickaitė-Žukovskė","Lekt. A. Kirdeikienė","Doc. J. Karaliūnaitė","Asist. T. Kasperavičius","Lekt. M. Kiškytė","Doc. A. Kozič","Doc. S. Kubilinskienė","Lekt. V. Kuklierius","Lekt. L. Kupčinskienė","Lekt. S. Levickienė","Lekt. dr. T. Liogienė","Doc. M. Liogys","Lekt. I. Liušicyna","Lekt. L. Liubauskienė","Lekt. V. Liubinas","Lekt. J. Liutvinavičienė","Doc. A. Lučun","Lekt. E. Mačerauskas","Lekt. J. Mačėnienė","Lekt. D. Matusevičus","Lekt. V. Matutis","Lekt. L. Mažeiko","Lekt. K. Mečinskaitė-Stankevič","Lekt. R. Mikonienė","Lekt. A. Morkūnienė","Lekt. V. Netikša","Lekt. A. Netikšienė","Asist. D. Neverbickaitė","Asist. N. Pozniak","Doc. P. Ragulis","Lekt. O. Raudonė","Lekt. A. Savickaitė","Lekt. D. Savulionis","Lekt. A. Slimanavičienė","Asist. P. Šakalys","Doc. I. Šileikienė","Asist. T. Silvanavičius","Doc. I. Tumasonienė","Lekt. M. R. Urbonavičius","Lekt. I. Vaitkuvienė","Asist. J. Vaičiulytė","Lekt. J. Vasaitienė","Asist. S. Volosevičius","Doc. A. Žemgulis","Asist. J. Zailskas","Lekt. dr. L. Žvinytė","Lekt. dr. A. Usovaitė"];
+const dest =
+    ["Laisvi"," M. Baltramaitienė"," V. Baltrūnienė","dr. G. Bražiūnas","Asist. S. Brusokaitė"," S. Bučys"," R. Čenienė"," J. Čivilis"," A. Danilevičiūtė"," J. Daukševič"," G. Dmitrijev"," V. Dubovskaja"," E. Garla"," E. Gasiūnienė"," M. Gžegoževskis"," J. Helsvig"," J. Jablonskienė"," V. Judickaitė-Žukovskė"," A. Kirdeikienė","dr. J. Karaliūnaitė","Asist. T. Kasperavičius"," M. Kiškytė","dr. A. Kozič","dr. S. Kubilinskienė"," V. Kuklierius"," L. Kupčinskienė"," S. Levickienė"," dr. T. Liogienė","dr. M. Liogys"," I. Liušicyna"," L. Liubauskienė"," V. Liubinas"," J. Liutvinavičienė","dr. A. Lučun"," E. Mačerauskas"," J. Mačėnienė"," D. Matusevičus"," V. Matutis"," L. Mažeiko"," K. Mečinskaitė-Stankevič"," R. Mikonienė"," A. Morkūnienė"," V. Netikša"," A. Netikšienė","Asist. D. Neverbickaitė","Asist. N. Pozniak","dr. P. Ragulis"," O. Raudonė"," A. Savickaitė"," D. Savulionis"," A. Slimanavičienė","Asist. P. Šakalys","dr. I. Šileikienė","Asist. T. Silvanavičius","dr. I. Tumasonienė"," M. R. Urbonavičius"," I. Vaitkuvienė","Asist. J. Vaičiulytė"," J. Vasaitienė","Asist. S. Volosevičius","dr. A. Žemgulis","Asist. J. Zailskas"," dr. L. Žvinytė"," dr. A. Usovaitė"];
 const aud =
     ["Laisvi","209","210","222","305","307","309","311","313","314","315","317","318","320","324","326","328","330","335","401","403","404","406","408","410","412","413","414","416","417","420","422","301","104","104A","201","202","203","205","207","303","321","317A"];
 const grupes = ["IS17A","IS17B","IS17C","IS16A","IS16B","IS15A","IS15B","PI17A","PI17B","PI17C","PI17D","PI17E","PI16A","PI16B","PI15A","PI15B","IR16A","IR15A","KS17A","KS17B","KS16A","KS16B","KT15A","EI17A","EI16A","EI16B","ET15A","TS17A","TK16A","EV15A",];
@@ -523,6 +524,15 @@ $(".pagination_pogrupis a").click(function () {
         }
 
         readAndDisplayData();
+       // window.location.reload(true);
+        document.getElementById("auditorija").value = "";
+        document.getElementById("destytojai").value = "";
+        document.getElementById("grupe").value = "";
+        $('div#paskaita.pagination a').removeClass('active');
+        $('div#pogrupis.pagination_pogrupis a').removeClass('active');
+
+        $('div#paskaita.pagination a:first-child').addClass('active');
+        $('div#pogrupis.pagination_pogrupis a:first-child').addClass('active');
 
     }
     function prisijungti() {
