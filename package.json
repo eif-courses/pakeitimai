@@ -28,7 +28,10 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "moment": "2.x"
+    "moment": "2.x",
+    "tableexport": "^5.0.2",
+    "xlsx": "^0.13.0",
+    "xlsx-js": "^0.8.7"
   },
   "deprecated": false,
   "description": "A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS",
