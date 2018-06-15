@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Eif pakeitimai</title>
-    <meta name="author" content="David Bushell">
+    <meta name="author" content="Marius Gžegoževkis">
     <link rel="stylesheet" href="css/pikaday.css">
     <link rel="stylesheet" href="css/site.css">
     <script src="firebase.js"></script>
     <script src="jquery-1.10.2.js"></script>
     <script src="pikaday.js"></script>
+
 
     <style>
         input[type=text], input[type=password], input[type=list], select {
@@ -31,10 +32,12 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-weight: bold;
         }
         button{
             width: auto;
             background-color: red;
+            font-weight: bold;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
@@ -50,7 +53,7 @@
 
         div {
             border-radius: 5px;
-            background-color: #f2f2f2;
+            background-color: #2196f303;
             padding: 20px;
         }
 
@@ -135,6 +138,7 @@
         #pakeitimai td, #pakeitimai th {
             border: 1px solid #ddd;
             font-size: 12pt;
+            text-align: center;
         }
 
         #pakeitimai tr:nth-child(even){background-color: #f2f2f2;}
@@ -147,6 +151,7 @@
             font-size:20pt;
             background-color: #3f69b5;
             color: white;
+            padding: 10px;
         }
 
         .container {
@@ -249,13 +254,14 @@
 
 
 
-<button id="cmd">Eksportuoti duomenis</button>
 
 
 
 
+<h1>VK Elektronikos ir informatikos fakultetas (Laikinieji tvark. pakeitimai)</h1>
 
 <div class="row">
+
     <div class="column left">
 
             <form>
@@ -320,7 +326,9 @@
         <table id="pakeitimai">
 
 
+            <button id="export" style="background-color: #009688; font-weight: bold;">Spausdinti</button>
         </table>
+
 
 
 <script>//TODO - SUKURTI EKSPORTO FUNKCIJA</script>
@@ -334,10 +342,10 @@
                 <!--</colgroup>-->
                 <!--<thead>-->
                 <!--<tr class='warning'>-->
-                    <!--<th>Country</th>-->
-                    <!--<th>Population</th>-->
-                    <!--<th>Date</th>-->
-                    <!--<th>Age</th>-->
+                    <!--<th>Paskaita</th>-->
+                    <!--<th>Grupė</th>-->
+                    <!--<th>Dėstytojas</th>-->
+                    <!--<th>Auditorija</th>-->
                 <!--</tr>-->
                 <!--</thead>-->
                 <!--<tbody>-->
@@ -546,7 +554,7 @@ $(".pagination_pogrupis a").click(function () {
 
         document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
         const playersRef = firebase.database().ref("user-posts/");
-
+        //$("#customers tbody").text("");
         playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
             let newPlayer = data.val();
 
@@ -554,13 +562,23 @@ $(".pagination_pogrupis a").click(function () {
             // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
 
             if(newPlayer.date === picker.toString('YYYY-MM-DD')) {
-                pakeitimaiDiv.innerHTML += '<tr><td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' + newPlayer.date + '</td><td>' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"' + 'id="' + data.key + '"> Ištrinti' + '</button></td></tr>' + '\n';
+                pakeitimaiDiv.innerHTML += '<tr><td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe +
+                    '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' +
+                    newPlayer.date + '</td><td>' +
+                    '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"' +
+                    'id="' +
+                    data.key + '"> Ištrinti' + '</button></td></tr>' + '\n';
 //                $("#customers tbody").append('<tr><td>' + newPlayer.paskaita + '</td><td>' +
 //                    newPlayer.grupe + '</td><td>' + newPlayer.destytojas + '</td><td>' +
 //                    newPlayer.auditorija + '</td></tr>');
             }
         });
+//        $( "#customers tbody tr" ).insertAfter( $( "<tr><th colspan='4'>DATA:"+ picker.toString('YYYY-MM-DD')
+//            +"</th></tr>" ) );
+        //$("").append();
+
     }
+
 
     function myFunction() {
 
@@ -615,6 +633,21 @@ $(".pagination_pogrupis a").click(function () {
             console.log('logged out');
         });
     }
+
+    function printData()
+    {
+        var divToPrint=document.getElementById("pakeitimai");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+
+    $('#export').on('click',function(){
+        printData();
+    })
+
+
 </script>
 
 
