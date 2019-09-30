@@ -10,6 +10,7 @@
     <script src="firebase.js"></script>
     <script src="jquery-1.10.2.js"></script>
     <script src="pikaday.js"></script>
+    <script src="d3.v5.min.js"></script>
 
 
     <style>
@@ -380,53 +381,109 @@
 
 
 
-
 <script>
 
 
-const dest =
-    ["Paskaitos nėra","Laisvi","J.Bautronis","M. Baltramaitienė"," V. Baltrūnienė","dr. G. Bražiūnas"," S. Brusokaitė"," S. Bučys"," R. Čenienė"," J. Čivilis"," A. Danilevičiūtė"," J. Daukševič"," G. Dmitrijev"," V. Dubovskaja"," E. Garla"," E. Gasiūnienė","dr. L. Gžegoževskė"," M. Gžegoževskis"," J. Helsvig"," J. Jablonskienė"," V. Judickaitė-Žukovskė"," A. Kirdeikienė","dr. J. Karaliūnaitė"," T. Kasperavičius"," M. Kiškytė", "I. Kojelytė", "dr. A. Kozič","dr. S. Kubilinskienė"," V. Kuklierius", "R. Laurinavičius","E. Leskauskaitė"," L. Kupčinskienė"," S. Levickienė"," dr. T. Liogienė","dr. M. Liogys"," I. Liušicyna"," L. Liubauskienė"," V. Liubinas"," J. Liutvinavičienė","dr. A. Lučun"," E. Mačerauskas"," J. Mačėnienė"," D. Matusevičus"," V. Matutis"," L. Mažeiko"," K. Mečinskaitė-Stankevič"," R. Mikonienė"," A. Morkūnienė"," V. Netikša"," A. Netikšienė"," D. Neverbickaitė"," N. Pozniak","dr. P. Ragulis"," O. Raudonė","A. Sadauskis"," A. Savickaitė"," D. Savulionis", "L. Savulionienė"," A. Slimanavičienė"," P. Šakalys","dr. I. Šileikienė"," T. Silvanavičius","dr. I. Tumasonienė", "dr. R. Tumasonis"," R. Urbonavičius"," I. Vaitkuvienė"," J. Vaičiulytė"," J. Vasaitienė"," S. Volosevičius","dr. A. Žemgulis"," J. Zailskas", "dr. A. Usovaitė"];
-const aud =
-    ["Paskaitos nėra","Laisvi","209","210","222","305","307","309","311","313","314","315","317","318","320","324","326","328","330","335","401","403","404","406","408","410","412","413","414","416","417","420","422","301","104","104A","201","202","203","205","207","303","321","317A"];
-const grupes = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
 
-for (let i = 0; i < dest.length; i++) {
-    //console.log(dest[i]);
-    let optionNode = document.createElement("option");
+//let dest = [];
+    //["Paskaitos nėra","Laisvi","J.Bautronis","M. Baltramaitienė"," V. Baltrūnienė","dr. G. Bražiūnas"," S. Brusokaitė"," S. Bučys"," R. Čenienė"," J. Čivilis"," A. Danilevičiūtė"," J. Daukševič"," G. Dmitrijev"," V. Dubovskaja"," E. Garla"," E. Gasiūnienė","dr. L. Gžegoževskė"," M. Gžegoževskis"," J. Helsvig"," J. Jablonskienė"," V. Judickaitė-Žukovskė"," A. Kirdeikienė","dr. J. Karaliūnaitė"," T. Kasperavičius"," M. Kiškytė", "I. Kojelytė", "dr. A. Kozič","dr. S. Kubilinskienė"," V. Kuklierius", "R. Laurinavičius","E. Leskauskaitė"," L. Kupčinskienė"," S. Levickienė"," dr. T. Liogienė","dr. M. Liogys"," I. Liušicyna"," L. Liubauskienė"," V. Liubinas"," J. Liutvinavičienė","dr. A. Lučun"," E. Mačerauskas"," J. Mačėnienė"," D. Matusevičus"," V. Matutis"," L. Mažeiko"," K. Mečinskaitė-Stankevič"," R. Mikonienė"," A. Morkūnienė"," V. Netikša"," A. Netikšienė"," D. Neverbickaitė"," N. Pozniak","dr. P. Ragulis"," O. Raudonė","A. Sadauskis"," A. Savickaitė"," D. Savulionis", "L. Savulionienė"," A. Slimanavičienė"," P. Šakalys","dr. I. Šileikienė"," T. Silvanavičius","dr. I. Tumasonienė", "dr. R. Tumasonis"," R. Urbonavičius"," I. Vaitkuvienė"," J. Vaičiulytė"," J. Vasaitienė"," S. Volosevičius","dr. A. Žemgulis"," J. Zailskas", "dr. A. Usovaitė"];
+//const aud =
+    //["Paskaitos nėra","Laisvi","209","210","222","305","307","309","311","313","314","315","317","318","320","324","326","328","330","335","401","403","404","406","408","410","412","413","414","416","417","420","422","301","104","104A","201","202","203","205","207","303","321","317A"];
+//const grupes = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
 
-   // Set the value
-    optionNode.value = dest[i];
-    //optionNode.appendChild(document.createTextNode("$50 USD"));
 
-  // Add the optionNode to the datalist
-    document.getElementById("hosting-plan").appendChild(optionNode);
-}
 
-aud.sort();
+const urlFile = "https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv";
 
-for (let j = 0; j < aud.length; j++) {
-  //  console.log(aud[j]);
-    let optionNode2 = document.createElement("option");
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGjcHXRJD9Y_619r9I0gp_C8TNjciLtCjkT3hOYUVmRKyxAmsk6FCPC-fHq26CipJWF_hHtQcAob5C/pub?output=csv";
 
-    // Set the value
-    optionNode2.value = aud[j];
-    //optionNode.appendChild(document.createTextNode("$50 USD"));
+d3.csv(url, function(data) {
+    for (var i = 0; i < data.length; i++) {
+        let optionNode = document.createElement("option");
+        // Set the value
+        optionNode.value = data[i].Destytojas;
+        // Add the optionNode to the datalist
+        document.getElementById("hosting-plan").appendChild(optionNode);
 
-    // Add the optionNode to the datalist
-    document.getElementById("hosting-plan55").appendChild(optionNode2);
-}
 
-for (let j = 0; j < grupes.length; j++) {
-  //  console.log(grupes[j]);
-    let optionNode2 = document.createElement("option");
+        let optionNode2 = document.createElement("option");
 
-    // Set the value
-    optionNode2.value = grupes[j];
-    //optionNode.appendChild(document.createTextNode("$50 USD"));
+        // Set the value
+        optionNode2.value = data[i].Auditorija;
+        //optionNode.appendChild(document.createTextNode("$50 USD"));
 
-    // Add the optionNode to the datalist
-    document.getElementById("grupes").appendChild(optionNode2);
-}
+        // Add the optionNode to the datalist
+        document.getElementById("hosting-plan55").appendChild(optionNode2);
+
+
+
+        //  console.log(grupes[j]);
+        let optionNode3 = document.createElement("option");
+
+        // Set the value
+        optionNode3.value = data[i].Grupe;
+        //optionNode.appendChild(document.createTextNode("$50 USD"));
+
+        // Add the optionNode to the datalist
+        document.getElementById("grupes").appendChild(optionNode3);
+
+
+
+        //dest.push(data[i].Grupe);
+      //  console.log(data[i].Grupe);
+        //console.log(data[i].Destytojas);
+        //console.log(data[i].Auditorija);
+    }
+});
+// d3.csv("https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv").(function(data) {
+//         console.log(data);
+//     });
+
+
+
+
+
+
+
+
+
+// for (let i = 0; i < dest.length; i++) {
+//     //console.log(dest[i]);
+//     let optionNode = document.createElement("option");
+//
+//    // Set the value
+//     optionNode.value = dest[i];
+//     //optionNode.appendChild(document.createTextNode("$50 USD"));
+//
+//   // Add the optionNode to the datalist
+//     document.getElementById("hosting-plan").appendChild(optionNode);
+// }
+
+// aud.sort();
+//
+// for (let j = 0; j < aud.length; j++) {
+//   //  console.log(aud[j]);
+//     let optionNode2 = document.createElement("option");
+//
+//     // Set the value
+//     optionNode2.value = aud[j];
+//     //optionNode.appendChild(document.createTextNode("$50 USD"));
+//
+//     // Add the optionNode to the datalist
+//     document.getElementById("hosting-plan55").appendChild(optionNode2);
+// }
+
+// for (let j = 0; j < grupes.length; j++) {
+//   //  console.log(grupes[j]);
+//     let optionNode2 = document.createElement("option");
+//
+//     // Set the value
+//     optionNode2.value = grupes[j];
+//     //optionNode.appendChild(document.createTextNode("$50 USD"));
+//
+//     // Add the optionNode to the datalist
+//     document.getElementById("grupes").appendChild(optionNode2);
+// }
 
     $(".pagination a").click(function () {
         $('.pagination a').removeClass('active'); //Clear all checked class on .size
@@ -455,6 +512,15 @@ $(".pagination_pogrupis a").click(function () {
     // Initialize Firebase
 
     const config = {
+
+        // apiKey: "AIzaSyD-wYlcrhSHckPGXNJa2jiQn0AzSkjVEmg",
+        // authDomain: "eaaweawe.firebaseapp.com",
+        // databaseURL: "https://eaaweawe.firebaseio.com",
+        // projectId: "eaaweawe",
+        // storageBucket: "eaaweawe.appspot.com",
+        // messagingSenderId: "125098122964",
+        // appId: "1:125098122964:web:5a60625c2eae6ff2c62541"
+
         apiKey: "AIzaSyCRYVIHl_orktaBMwsmlQtMcOaeGO0FTQI",
         authDomain: "eif-courses.firebaseapp.com",
         databaseURL: "https://eif-courses.firebaseio.com",
