@@ -321,6 +321,8 @@
 
 
 
+
+
     <div class="column right">
 
 
@@ -513,20 +515,29 @@ $(".pagination_pogrupis a").click(function () {
 
     const config = {
 
-        // apiKey: "AIzaSyD-wYlcrhSHckPGXNJa2jiQn0AzSkjVEmg",
-        // authDomain: "eaaweawe.firebaseapp.com",
-        // databaseURL: "https://eaaweawe.firebaseio.com",
-        // projectId: "eaaweawe",
-        // storageBucket: "eaaweawe.appspot.com",
-        // messagingSenderId: "125098122964",
-        // appId: "1:125098122964:web:5a60625c2eae6ff2c62541"
-
         apiKey: "AIzaSyCRYVIHl_orktaBMwsmlQtMcOaeGO0FTQI",
         authDomain: "eif-courses.firebaseapp.com",
         databaseURL: "https://eif-courses.firebaseio.com",
         projectId: "eif-courses",
         storageBucket: "eif-courses.appspot.com",
-        messagingSenderId: "535363326769"
+        messagingSenderId: "535363326769",
+        appId: "1:535363326769:web:cc13dce33cff5884925610"
+
+
+
+
+
+
+
+        // apiKey: "AIzaSyBfMIcfL3ixMfvsSLIiWicN24AK3NeOaMI",
+        // authDomain: "student-bcfa2.firebaseapp.com",
+        // databaseURL: "https://student-bcfa2.firebaseio.com",
+        // projectId: "student-bcfa2",
+        // storageBucket: "student-bcfa2.appspot.com",
+        // messagingSenderId: "762197849555",
+        // appId: "1:762197849555:web:fbdbbf423c11120a71ab26",
+        // measurementId: "G-ERRK6PSZ4G"
+
     };
     firebase.initializeApp(config);
 
@@ -606,6 +617,57 @@ $(".pagination_pogrupis a").click(function () {
         updates['/archive/' + newPostKey] = postData;
         updates['/user-posts/' + newPostKey] = postData;
 
+
+        let grupeBEHTML = postData.grupe.replace(/<[^>]*>?/gm, '');
+
+        const tokenas = firebase.database().ref("tokenas/");
+        //$("#customers tbody").text("");
+        tokenas.orderByChild("data").on("child_added", function (data, prevChildKey) {
+            let tok = data.val();
+
+            if(grupeBEHTML.includes(tok.grupe)){
+                window.fetch('https://fcm.googleapis.com/fcm/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'key=AIzaSyCMN7KvOyOvYmo-sdh73i8a5TWn-MfsUxQ'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({
+                        "to": tok.tokenas,
+                        "notification" : {
+                            "title": "PAKEITIMAS: "+tok.grupe,
+                            "body": postData.paskaita+" paskaita, "+ postData.destytojas +", "+postData.date +", "+postData.auditorija,
+                            "icon": "https://i0.wp.com/eif.viko.lt/media/uploads/sites/5/2017/08/EIF.jpg?fit=340%2C336&ssl=1",
+                            "click_action": "https://pakeitimai.github.io/"
+                        }
+                    }),
+                })
+            }
+
+            if(grupeBEHTML === tok.grupe){
+                window.fetch('https://fcm.googleapis.com/fcm/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'key=AIzaSyCMN7KvOyOvYmo-sdh73i8a5TWn-MfsUxQ'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({
+                        "to": tok.tokenas,
+                        "notification" : {
+                            "title": "PAKEITIMAS: "+tok.grupe,
+                            "body": postData.paskaita+" paskaita, "+ postData.destytojas +", "+postData.date +", "+postData.auditorija,
+                            "icon": "https://i0.wp.com/eif.viko.lt/media/uploads/sites/5/2017/08/EIF.jpg?fit=340%2C336&ssl=1",
+                            "click_action": "https://pakeitimai.github.io/"
+                        }
+                    }),
+                })
+            }
+          //  console.log(tok.grupe)
+            // TODO need fix push notification
+
+        })
         return firebase.database().ref().update(updates);
     }
 //    $('input#datepicker').val(picker.getDate());
@@ -657,7 +719,6 @@ $(".pagination_pogrupis a").click(function () {
         if(grupe === ""){grupe = "-"}
 
         if(pogrupis === 'abu'){
-
             writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, '<b>'+grupe+'</b>', paskaita);
         }else{
             writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija,

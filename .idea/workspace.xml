@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b33453e2-6e4e-407e-bdee-e7435cb71ba9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/d3.v5.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eif.jpg" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,33 +20,29 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>btn-remove-key</find>
-      <find>upercase</find>
-      <find>pagina</find>
-      <find>my</find>
-      <find>pakeitima</find>
-      <find>pakeitimai</find>
-      <find>tbody</find>
-      <find>jqu</find>
-      <find>read</find>
-      <find>button</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>dr</replace>
-      <replace>&quot;</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Marius\Desktop\pakeitimai-master\pakeitimai-beta-v2\.idea" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1RYtoIVbuNRMfumXrGWZtxqjFiM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -60,17 +53,10 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marius\Desktop\pakeitimai-master\pakeitimai-beta-v2" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -88,6 +74,18 @@
         <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -129,6 +127,9 @@
       <workItem from="1529302785951" duration="87000" />
       <workItem from="1535712129456" duration="1674000" />
       <workItem from="1569856036006" duration="7164000" />
+      <workItem from="1576877524555" duration="4926000" />
+      <workItem from="1576920933851" duration="4868000" />
+      <workItem from="1576933105892" duration="10162000" />
     </task>
     <task id="LOCAL-00001" summary="dfade">
       <created>1522772271579</created>
@@ -227,7 +228,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -237,5 +240,15 @@
     <MESSAGE value="dfade" />
     <MESSAGE value="production ready" />
     <option name="LAST_COMMIT_MESSAGE" value="production ready" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1576950288653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576950288653" />
+    <state x="816" y="419" key="Github.ShareDialog" timestamp="1576882618182">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="816" y="419" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576882618182" />
   </component>
 </project>
