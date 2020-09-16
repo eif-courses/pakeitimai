@@ -19,18 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b33453e2-6e4e-407e-bdee-e7435cb71ba9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="b33453e2-6e4e-407e-bdee-e7435cb71ba9" name="Default" comment="production ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paketimai.csv" beforeDir="false" afterPath="$PROJECT_DIR$/paketimai.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="pakeitimai" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,6 +65,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marius\WebstormProjects\pakeitimai" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Marius\Desktop\pakeitimai-master\pakeitimai-beta-v2" />
     </key>
@@ -134,7 +133,7 @@
       <workItem from="1576877524555" duration="4926000" />
       <workItem from="1576920933851" duration="4868000" />
       <workItem from="1576933105892" duration="10162000" />
-      <workItem from="1600239028743" duration="313000" />
+      <workItem from="1600239028743" duration="914000" />
     </task>
     <task id="LOCAL-00001" summary="dfade">
       <created>1522772271579</created>
@@ -213,7 +212,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535713789662</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="production ready">
+      <created>1600239561867</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600239561867</updated>
+    </task>
+    <task id="LOCAL-00013" summary="production ready">
+      <created>1600239613800</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1600239613800</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -246,13 +259,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="production ready" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1576950288653">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600239615049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576950288653" />
-    <state x="816" y="419" key="Github.ShareDialog" timestamp="1576882618182">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="816" y="419" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576882618182" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600239615049" />
   </component>
 </project>
