@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b33453e2-6e4e-407e-bdee-e7435cb71ba9" name="Default" comment="production ready">
+    <list default="true" id="b33453e2-6e4e-407e-bdee-e7435cb71ba9" name="Default" comment="production ready fixed LInK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -135,7 +135,8 @@
       <workItem from="1576933105892" duration="10162000" />
       <workItem from="1600239028743" duration="1408000" />
       <workItem from="1601021822561" duration="622000" />
-      <workItem from="1601028352456" duration="889000" />
+      <workItem from="1601028352456" duration="1107000" />
+      <workItem from="1634038055460" duration="1279000" />
     </task>
     <task id="LOCAL-00001" summary="dfade">
       <created>1522772271579</created>
@@ -242,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600240115392</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="production ready fixed LInK">
+      <created>1601029668263</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1601029668263</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -272,16 +280,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dfade" />
     <MESSAGE value="production ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="production ready" />
+    <MESSAGE value="production ready fixed LInK" />
+    <option name="LAST_COMMIT_MESSAGE" value="production ready fixed LInK" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="GitCloneDialog" timestamp="1600240424430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" key="GitCloneDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600240424430" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600240116418">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1601029669509">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600240116418" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601029669509" />
   </component>
 </project>
