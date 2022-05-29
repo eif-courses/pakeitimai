@@ -35,7 +35,8 @@
             cursor: pointer;
             font-weight: bold;
         }
-        button{
+
+        button {
             width: auto;
             background-color: red;
             font-weight: bold;
@@ -82,6 +83,7 @@
         .pagination a:hover:not(.active) {
             background-color: #ddd;
         }
+
         .pagination_pogrupis {
             display: inline-block;
             margin-left: -22px;
@@ -130,6 +132,7 @@
             display: table;
             clear: both;
         }
+
         #pakeitimai {
             border-collapse: collapse;
             width: 100%;
@@ -142,14 +145,18 @@
             text-align: center;
         }
 
-        #pakeitimai tr:nth-child(even){background-color: #f2f2f2;}
+        #pakeitimai tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-        #pakeitimai tr:hover {background-color: #ddd;}
+        #pakeitimai tr:hover {
+            background-color: #ddd;
+        }
 
         #pakeitimai th {
 
             text-align: left;
-            font-size:20pt;
+            font-size: 20pt;
             background-color: #3f69b5;
             color: white;
             padding: 10px;
@@ -219,6 +226,7 @@
             -ms-transform: rotate(45deg);
             transform: rotate(45deg);
         }
+
         .btn-group button {
             background-color: #4CAF50; /* Green background */
             border: 1px solid green; /* Green border */
@@ -246,17 +254,8 @@
     </style>
 
 
-
-
 </head>
 <body>
-
-
-
-
-
-
-
 
 
 <h1>VK Elektronikos ir informatikos fakultetas (Laikinieji tvark. pakeitimai)</h1>
@@ -265,62 +264,56 @@
 
     <div class="column left">
 
-            <form>
+        <form>
 
-                <label for="datepicker">Pakeitimo data</label>
-                <input type="text" id="datepicker" onchange="readAndDisplayData()">
+            <label for="datepicker">Pakeitimo data</label>
+            <input type="text" id="datepicker" onchange="readAndDisplayData()">
 
-                <label for="paskaita">Kelinta paskaita</label>
-                <div class="pagination" id="paskaita">
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    <a href="#">8</a>
-                </div>
+            <label for="paskaita">Kelinta paskaita</label>
+            <div class="pagination" id="paskaita">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+            </div>
 
-                <!-- Grupės-->
-                <label for="grupes">Grupė</label>
-                <input list="grupes" type="text" id="grupe" onfocus="this.value=''">
-                <datalist id="grupes"></datalist>
+            <!-- Grupės-->
+            <label for="grupes">Grupė</label>
+            <input list="grupes" type="text" id="grupe" onfocus="this.value=''">
+            <datalist id="grupes"></datalist>
 
-                <div class="pagination_pogrupis" id="pogrupis">
-                    <a href="#" class="active">abu</a>
-                    <a href="#">I pogrupis</a>
-                    <a href="#">II pogrupis</a>
+            <div class="pagination_pogrupis" id="pogrupis">
+                <a href="#" class="active">abu</a>
+                <a href="#">I pogrupis</a>
+                <a href="#">II pogrupis</a>
 
-                </div>
-<br/>
-
-
+            </div>
+            <br/>
 
 
+            <!---->
+            <!--Dėstytojai-->
+            <label for="hosting-plan">Dėstytojas</label>
+            <input list="hosting-plan" type="text" id="destytojai" onfocus="this.value=''">
+            <datalist id="hosting-plan"></datalist>
+            <!---->
+            <!--Auditorijos-->
+            <label for="hosting-plan55">Auditorija</label>
+            <input list="hosting-plan55" type="text" id="auditorija" onfocus="this.value=''">
+            <datalist id="hosting-plan55"></datalist>
+            <!---->
 
-                <!---->
-                <!--Dėstytojai-->
-                <label for="hosting-plan">Dėstytojas</label>
-                <input list="hosting-plan" type="text" id="destytojai" onfocus="this.value=''">
-                <datalist id="hosting-plan"></datalist>
-                <!---->
-                <!--Auditorijos-->
-                <label for="hosting-plan55">Auditorija</label>
-                <input list="hosting-plan55" type="text" id="auditorija" onfocus="this.value=''">
-                <datalist id="hosting-plan55"></datalist>
-                <!---->
+            <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
+            <br/>
+            <br/>
+            <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
 
-                <input type="button" id="changes" value="Patvirtinti pakeitimą" onclick="myFunction()">
-                <br/>
-                <br/>
-                <input style="background-color:red;" type="button" id="btnLogOut" value="Atsijungti" onclick="atsijungti()">
-
-            </form>
-        </div>
-
-
-
+        </form>
+    </div>
 
 
     <div class="column right">
@@ -333,33 +326,28 @@
         </table>
 
 
-
-<script>//TODO - SUKURTI EKSPORTO FUNKCIJA</script>
+        <script>//TODO - SUKURTI EKSPORTO FUNKCIJA</script>
         <!--<div id="customers">-->
-            <!--<table id="tab_customers" class="table table-striped">-->
-                <!--<colgroup>-->
-                    <!--<col width="20%">-->
-                    <!--<col width="20%">-->
-                    <!--<col width="40">-->
-                    <!--<col width="20%">-->
-                <!--</colgroup>-->
-                <!--<thead>-->
-                <!--<tr class='warning'>-->
-                    <!--<th>Paskaita</th>-->
-                    <!--<th>Grupė</th>-->
-                    <!--<th>Dėstytojas</th>-->
-                    <!--<th>Auditorija</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
+        <!--<table id="tab_customers" class="table table-striped">-->
+        <!--<colgroup>-->
+        <!--<col width="20%">-->
+        <!--<col width="20%">-->
+        <!--<col width="40">-->
+        <!--<col width="20%">-->
+        <!--</colgroup>-->
+        <!--<thead>-->
+        <!--<tr class='warning'>-->
+        <!--<th>Paskaita</th>-->
+        <!--<th>Grupė</th>-->
+        <!--<th>Dėstytojas</th>-->
+        <!--<th>Auditorija</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
 
-                <!--</tbody>-->
-            <!--</table>-->
+        <!--</tbody>-->
+        <!--</table>-->
         <!--</div>-->
-
-
-
-
 
 
         <div style="width:450px; margin:auto;" id="login">
@@ -374,7 +362,6 @@
         </div>
 
 
-
     </div>
 </div>
 
@@ -382,121 +369,107 @@
 <div id="editor"></div>
 
 
-
 <script>
 
 
-
-//let dest = [];
+    //let dest = [];
     //["Paskaitos nėra","Laisvi","J.Bautronis","M. Baltramaitienė"," V. Baltrūnienė","dr. G. Bražiūnas"," S. Brusokaitė"," S. Bučys"," R. Čenienė"," J. Čivilis"," A. Danilevičiūtė"," J. Daukševič"," G. Dmitrijev"," V. Dubovskaja"," E. Garla"," E. Gasiūnienė","dr. L. Gžegoževskė"," M. Gžegoževskis"," J. Helsvig"," J. Jablonskienė"," V. Judickaitė-Žukovskė"," A. Kirdeikienė","dr. J. Karaliūnaitė"," T. Kasperavičius"," M. Kiškytė", "I. Kojelytė", "dr. A. Kozič","dr. S. Kubilinskienė"," V. Kuklierius", "R. Laurinavičius","E. Leskauskaitė"," L. Kupčinskienė"," S. Levickienė"," dr. T. Liogienė","dr. M. Liogys"," I. Liušicyna"," L. Liubauskienė"," V. Liubinas"," J. Liutvinavičienė","dr. A. Lučun"," E. Mačerauskas"," J. Mačėnienė"," D. Matusevičus"," V. Matutis"," L. Mažeiko"," K. Mečinskaitė-Stankevič"," R. Mikonienė"," A. Morkūnienė"," V. Netikša"," A. Netikšienė"," D. Neverbickaitė"," N. Pozniak","dr. P. Ragulis"," O. Raudonė","A. Sadauskis"," A. Savickaitė"," D. Savulionis", "L. Savulionienė"," A. Slimanavičienė"," P. Šakalys","dr. I. Šileikienė"," T. Silvanavičius","dr. I. Tumasonienė", "dr. R. Tumasonis"," R. Urbonavičius"," I. Vaitkuvienė"," J. Vaičiulytė"," J. Vasaitienė"," S. Volosevičius","dr. A. Žemgulis"," J. Zailskas", "dr. A. Usovaitė"];
-//const aud =
+    //const aud =
     //["Paskaitos nėra","Laisvi","209","210","222","305","307","309","311","313","314","315","317","318","320","324","326","328","330","335","401","403","404","406","408","410","412","413","414","416","417","420","422","301","104","104A","201","202","203","205","207","303","321","317A"];
-//const grupes = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
+    //const grupes = ["EI16S", "IS16S", "KS16S", "PI16S", "EI16A", "IS16A", "IS16B", "IS16A, IS16B", "IR16A", "PI16A", "PI16B", "PI16A, PI16B", "KS16A", "KS16B", "KS16A, KS16B","EI16B", "EV16A", "TK16A", "EI17S", "IS17S", "PI17S", "KS17S", "EI17A", "IS17A", "IS17B", "IS17C", "IS17A, IS17B, IS17C", "KS17A", "KS17B", "KS17A, KS17B", "PI17A", "PI17B", "PI17C", "PI17D", "PI17E", "PI17A, PI17B, PI17C, PI17D", "TS17A", "EI18S", "IS18S", "KS18S", "PI18S", "EI18A", "EI18B", "EI18A, EI18B", "IS18A", "IS18B", "IS18C", "IS18A, IS18B, IS18C", "KS18A", "PI18A", "PI18B", "PI18C", "PI18D", "PI18E", "PI18A, PI18B, PI18C, PI18D"];
 
 
+    const urlFile = "https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv";
 
-const urlFile = "https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv";
+    const url = "https://gist.githubusercontent.com/eif-courses/5af1746b1c160d8109d2ad219b8af889/raw/cd57c02c09ba1e0565f6a60b5c03357a10bc3490/pakeitimai.csv";
 
-const url = "https://gist.githubusercontent.com/eif-courses/5af1746b1c160d8109d2ad219b8af889/raw/cd57c02c09ba1e0565f6a60b5c03357a10bc3490/pakeitimai.csv";
-
-d3.csv(url, function(data) {
-    for (var i = 0; i < data.length; i++) {
-        let optionNode = document.createElement("option");
-        // Set the value
-        optionNode.value = data[i].Destytojas;
-        // Add the optionNode to the datalist
-        document.getElementById("hosting-plan").appendChild(optionNode);
-
-
-        let optionNode2 = document.createElement("option");
-
-        // Set the value
-        optionNode2.value = data[i].Auditorija;
-        //optionNode.appendChild(document.createTextNode("$50 USD"));
-
-        // Add the optionNode to the datalist
-        document.getElementById("hosting-plan55").appendChild(optionNode2);
+    d3.csv(url, function (data) {
+        for (var i = 0; i < data.length; i++) {
+            let optionNode = document.createElement("option");
+            // Set the value
+            optionNode.value = data[i].Destytojas;
+            // Add the optionNode to the datalist
+            document.getElementById("hosting-plan").appendChild(optionNode);
 
 
+            let optionNode2 = document.createElement("option");
 
-        //  console.log(grupes[j]);
-        let optionNode3 = document.createElement("option");
+            // Set the value
+            optionNode2.value = data[i].Auditorija;
+            //optionNode.appendChild(document.createTextNode("$50 USD"));
 
-        // Set the value
-        optionNode3.value = data[i].Grupe;
-        //optionNode.appendChild(document.createTextNode("$50 USD"));
-
-        // Add the optionNode to the datalist
-        document.getElementById("grupes").appendChild(optionNode3);
+            // Add the optionNode to the datalist
+            document.getElementById("hosting-plan55").appendChild(optionNode2);
 
 
+            //  console.log(grupes[j]);
+            let optionNode3 = document.createElement("option");
 
-        //dest.push(data[i].Grupe);
-      //  console.log(data[i].Grupe);
-        //console.log(data[i].Destytojas);
-        //console.log(data[i].Auditorija);
-    }
-});
-// d3.csv("https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv").(function(data) {
-//         console.log(data);
-//     });
+            // Set the value
+            optionNode3.value = data[i].Grupe;
+            //optionNode.appendChild(document.createTextNode("$50 USD"));
 
+            // Add the optionNode to the datalist
+            document.getElementById("grupes").appendChild(optionNode3);
 
 
+            //dest.push(data[i].Grupe);
+            //  console.log(data[i].Grupe);
+            //console.log(data[i].Destytojas);
+            //console.log(data[i].Auditorija);
+        }
+    });
+    // d3.csv("https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv").(function(data) {
+    //         console.log(data);
+    //     });
 
 
+    // for (let i = 0; i < dest.length; i++) {
+    //     //console.log(dest[i]);
+    //     let optionNode = document.createElement("option");
+    //
+    //    // Set the value
+    //     optionNode.value = dest[i];
+    //     //optionNode.appendChild(document.createTextNode("$50 USD"));
+    //
+    //   // Add the optionNode to the datalist
+    //     document.getElementById("hosting-plan").appendChild(optionNode);
+    // }
 
+    // aud.sort();
+    //
+    // for (let j = 0; j < aud.length; j++) {
+    //   //  console.log(aud[j]);
+    //     let optionNode2 = document.createElement("option");
+    //
+    //     // Set the value
+    //     optionNode2.value = aud[j];
+    //     //optionNode.appendChild(document.createTextNode("$50 USD"));
+    //
+    //     // Add the optionNode to the datalist
+    //     document.getElementById("hosting-plan55").appendChild(optionNode2);
+    // }
 
-
-
-// for (let i = 0; i < dest.length; i++) {
-//     //console.log(dest[i]);
-//     let optionNode = document.createElement("option");
-//
-//    // Set the value
-//     optionNode.value = dest[i];
-//     //optionNode.appendChild(document.createTextNode("$50 USD"));
-//
-//   // Add the optionNode to the datalist
-//     document.getElementById("hosting-plan").appendChild(optionNode);
-// }
-
-// aud.sort();
-//
-// for (let j = 0; j < aud.length; j++) {
-//   //  console.log(aud[j]);
-//     let optionNode2 = document.createElement("option");
-//
-//     // Set the value
-//     optionNode2.value = aud[j];
-//     //optionNode.appendChild(document.createTextNode("$50 USD"));
-//
-//     // Add the optionNode to the datalist
-//     document.getElementById("hosting-plan55").appendChild(optionNode2);
-// }
-
-// for (let j = 0; j < grupes.length; j++) {
-//   //  console.log(grupes[j]);
-//     let optionNode2 = document.createElement("option");
-//
-//     // Set the value
-//     optionNode2.value = grupes[j];
-//     //optionNode.appendChild(document.createTextNode("$50 USD"));
-//
-//     // Add the optionNode to the datalist
-//     document.getElementById("grupes").appendChild(optionNode2);
-// }
+    // for (let j = 0; j < grupes.length; j++) {
+    //   //  console.log(grupes[j]);
+    //     let optionNode2 = document.createElement("option");
+    //
+    //     // Set the value
+    //     optionNode2.value = grupes[j];
+    //     //optionNode.appendChild(document.createTextNode("$50 USD"));
+    //
+    //     // Add the optionNode to the datalist
+    //     document.getElementById("grupes").appendChild(optionNode2);
+    // }
 
     $(".pagination a").click(function () {
         $('.pagination a').removeClass('active'); //Clear all checked class on .size
         $(this).addClass('active'); //Add checked class to current clicked .siz
     });
-$(".pagination_pogrupis a").click(function () {
-    $('.pagination_pogrupis a').removeClass('active'); //Clear all checked class on .size
-    $(this).addClass('active'); //Add checked class to current clicked .siz
-});
-
-
+    $(".pagination_pogrupis a").click(function () {
+        $('.pagination_pogrupis a').removeClass('active'); //Clear all checked class on .size
+        $(this).addClass('active'); //Add checked class to current clicked .siz
+    });
 
 
     // init picker
@@ -541,7 +514,7 @@ $(".pagination_pogrupis a").click(function () {
     };
     firebase.initializeApp(config);
 
-    $(function() {
+    $(function () {
         // Handler for .ready() called.
 
         const auth = firebase.auth();
@@ -556,42 +529,64 @@ $(".pagination_pogrupis a").click(function () {
         });
 
 
-    const playersRef = firebase.database().ref("user-posts/");
+        const playersRef = firebase.database().ref("user-posts/");
 
-    playersRef.on('child_removed', snap => {
+        playersRef.on('child_removed', snap => {
 
-        console.log('KAZKAS ISTRINE ELEM');
-        readAndDisplayData();
+            console.log('KAZKAS ISTRINE ELEM');
+            readAndDisplayData();
 
-    });
+        });
 
-    let remove = function(e){
-        e.preventDefault();
-       // e.stopPropogation();
-       // var key = $(this).data('key');
-        let destID = this.id;  // iraso id
-        if(confirm('Ar tikrai norite ištrinti šį įrašą?')){
+        let remove = function (e) {
+            e.preventDefault();
+            // e.stopPropogation();
+            // var key = $(this).data('key');
+            let destID = this.id;  // iraso id
+            if (confirm('Ar tikrai norite ištrinti šį įrašą?')) {
 
 
-            //console.log(cc);
-            let playersRef = firebase.database().ref("user-posts/");
 
-            playersRef.once("value", function (data, prevChildKey) {
-                playersRef.child(''+destID).remove()
-                    .then(function () {
-                        console.log("Remove succeeded.");
-                        readAndDisplayData();
 
-                    })
-                    .catch(function (error) {
-                        console.log("Remove failed: " + error.message)
-                    });
+                let aud = $('#pakeitimai tr#'+destID+' td:nth-child(4)').text();
+                let teach = $('#pakeitimai tr#'+destID+' td:nth-child(3)').text();
+                let gr = $('#pakeitimai tr#'+destID+' td:nth-child(2)').text();
+                let pos = $('#pakeitimai tr#'+destID+' td:nth-child(1)').text();
+                let dat = $('#pakeitimai tr#'+destID+' td:nth-child(5)').text();
 
-            });
-           // firebase.database().ref("movies").child(key).remove();
-        }
-    };
-    $(document).on('click', '.btn-remove-key', remove);
+                console.log(destID);
+
+
+
+                const urlRemove = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ aud+'&date='+dat+'&teacher='+teach+'&position='+pos+'&group='+gr+'&isremoved=true';
+
+                fetch(urlRemove, {mode:"no-cors"});
+
+                //console.log(cc);
+                let playersRef = firebase.database().ref("user-posts/");
+
+                playersRef.once("value", function (data, prevChildKey) {
+
+                    playersRef.child('' + destID).remove()
+                        .then(function () {
+                            console.log("Remove succeeded.");
+                            // SHAREPOINT APPSUI
+
+                           // if($(#pa))
+
+
+                            readAndDisplayData();
+
+                        })
+                        .catch(function (error) {
+                            console.log("Remove failed: " + error.message)
+                        });
+
+                });
+                // firebase.database().ref("movies").child(key).remove();
+            }
+        };
+        $(document).on('click', '.btn-remove-key', remove);
 
     });
 
@@ -618,6 +613,10 @@ $(".pagination_pogrupis a").click(function () {
         updates['/user-posts/' + newPostKey] = postData;
 
 
+        const url = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ auditorija+'&date='+date+'&teacher='+destytojas+'&position='+paskaita+'&group='+grupe.replace(/<[^>]*>?/gm, '').replace(',',' ')+'&isremoved=false';
+
+        fetch(url, {mode:"no-cors"});
+
         let grupeBEHTML = postData.grupe.replace(/<[^>]*>?/gm, '');
 
         const tokenas = firebase.database().ref("tokenas/");
@@ -625,7 +624,7 @@ $(".pagination_pogrupis a").click(function () {
         tokenas.orderByChild("data").on("child_added", function (data, prevChildKey) {
             let tok = data.val();
 
-            if(grupeBEHTML.includes(tok.grupe)){
+            if (grupeBEHTML.includes(tok.grupe)) {
                 window.fetch('https://fcm.googleapis.com/fcm/send', {
                     method: 'POST',
                     headers: {
@@ -635,9 +634,9 @@ $(".pagination_pogrupis a").click(function () {
                     },
                     body: JSON.stringify({
                         "to": tok.tokenas,
-                        "notification" : {
-                            "title": "PAKEITIMAS: "+tok.grupe,
-                            "body": postData.paskaita+" paskaita, "+ postData.destytojas +", "+postData.date +", "+postData.auditorija,
+                        "notification": {
+                            "title": "PAKEITIMAS: " + tok.grupe,
+                            "body": postData.paskaita + " paskaita, " + postData.destytojas + ", " + postData.date + ", " + postData.auditorija,
                             "icon": "https://i0.wp.com/eif.viko.lt/media/uploads/sites/5/2017/08/EIF.jpg?fit=340%2C336&ssl=1",
                             "click_action": "https://pakeitimai.github.io/"
                         }
@@ -645,7 +644,7 @@ $(".pagination_pogrupis a").click(function () {
                 })
             }
 
-            if(grupeBEHTML === tok.grupe){
+            if (grupeBEHTML === tok.grupe) {
                 window.fetch('https://fcm.googleapis.com/fcm/send', {
                     method: 'POST',
                     headers: {
@@ -655,29 +654,30 @@ $(".pagination_pogrupis a").click(function () {
                     },
                     body: JSON.stringify({
                         "to": tok.tokenas,
-                        "notification" : {
-                            "title": "PAKEITIMAS: "+tok.grupe,
-                            "body": postData.paskaita+" paskaita, "+ postData.destytojas +", "+postData.date +", "+postData.auditorija,
+                        "notification": {
+                            "title": "PAKEITIMAS: " + tok.grupe,
+                            "body": postData.paskaita + " paskaita, " + postData.destytojas + ", " + postData.date + ", " + postData.auditorija,
                             "icon": "https://i0.wp.com/eif.viko.lt/media/uploads/sites/5/2017/08/EIF.jpg?fit=340%2C336&ssl=1",
                             "click_action": "https://pakeitimai.github.io/"
                         }
                     }),
                 })
             }
-          //  console.log(tok.grupe)
+            //  console.log(tok.grupe)
             // TODO need fix push notification
 
         })
         return firebase.database().ref().update(updates);
     }
-//    $('input#datepicker').val(picker.getDate());
+
+    //    $('input#datepicker').val(picker.getDate());
     picker.setDate(new Date());
 
 
     // TODO - IMPLEMENT EXPORT FUNCTION PAKEITIMU and add PRINT BUTTON
     function readAndDisplayData() {
 
-        document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>'+'<th>Grupė</th>'+'<th>Dėstytojas</th>'+'<th>Auditorija</th>'+'<th colspan="2">Data</th>';
+        document.getElementById("pakeitimai").innerHTML = '<th>Paskaita</th>' + '<th>Grupė</th>' + '<th>Dėstytojas</th>' + '<th>Auditorija</th>' + '<th colspan="2">Data</th>';
         const playersRef = firebase.database().ref("user-posts/");
         //$("#customers tbody").text("");
         playersRef.orderByChild("paskaita").on("child_added", function (data, prevChildKey) {
@@ -686,8 +686,8 @@ $(".pagination_pogrupis a").click(function () {
             let pakeitimaiDiv = document.getElementById("pakeitimai");
             // pakeitimaiDiv.innerHTML += newPlayer.paskaita + ' ' + newPlayer.grupe + ' ' + newPlayer.destytojas + ' ' + newPlayer.auditorija + ' ' + newPlayer.date + ' ' + '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"'+ 'id="'+data.key+'"> Ištrinti'+'</button><br/>' + '\n';
 
-            if(newPlayer.date === picker.toString('YYYY-MM-DD')) {
-                pakeitimaiDiv.innerHTML += '<tr><td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe +
+            if (newPlayer.date === picker.toString('YYYY-MM-DD')) {
+                pakeitimaiDiv.innerHTML += '<tr '+'id="'+ data.key+  '">'  +'<td>' + newPlayer.paskaita + '</td><td>' + newPlayer.grupe +
                     '</td><td>' + newPlayer.destytojas + '</td><td>' + newPlayer.auditorija + '</td><td> ' +
                     newPlayer.date + '</td><td>' +
                     '<button type="button" class="btn-remove-key" data-key="-dsdsf-sample-key"' +
@@ -714,19 +714,25 @@ $(".pagination_pogrupis a").click(function () {
         let pogrupis = $('div#pogrupis.pagination_pogrupis a.active').text();
 
 
-        if(auditorija === "") { auditorija = "-"}
-        if(destytojas === ""){destytojas = "-"}
-        if(grupe === ""){grupe = "-"}
+        if (auditorija === "") {
+            auditorija = "-"
+        }
+        if (destytojas === "") {
+            destytojas = "-"
+        }
+        if (grupe === "") {
+            grupe = "-"
+        }
 
-        if(pogrupis === 'abu'){
-            writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, '<b>'+grupe+'</b>', paskaita);
-        }else{
+        if (pogrupis === 'abu') {
+            writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija, '<b>' + grupe + '</b>', paskaita);
+        } else {
             writeNewPost(picker.toString('YYYY-MM-DD'), destytojas, auditorija,
-                '<b>'+grupe+'</b> '+'('+pogrupis+')', paskaita);
+                '<b>' + grupe + '</b> ' + '(' + pogrupis + ')', paskaita);
         }
 
         readAndDisplayData();
-       // window.location.reload(true);
+        // window.location.reload(true);
         document.getElementById("auditorija").value = "";
         document.getElementById("destytojai").value = "";
         document.getElementById("grupe").value = "";
@@ -737,6 +743,7 @@ $(".pagination_pogrupis a").click(function () {
         $('div#pogrupis.pagination_pogrupis a:first-child').addClass('active');
 
     }
+
     function prisijungti() {
 
         document.getElementById("btnLogin").addEventListener('click', e => {
@@ -758,22 +765,20 @@ $(".pagination_pogrupis a").click(function () {
         });
     }
 
-    function printData()
-    {
-        var divToPrint=document.getElementById("pakeitimai");
-        newWin= window.open("");
+    function printData() {
+        var divToPrint = document.getElementById("pakeitimai");
+        newWin = window.open("");
         newWin.document.write(divToPrint.outerHTML);
         newWin.print();
         newWin.close();
     }
 
-    $('#export').on('click',function(){
+    $('#export').on('click', function () {
         printData();
     })
 
 
 </script>
-
 
 
 </body>
