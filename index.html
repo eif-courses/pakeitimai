@@ -381,7 +381,7 @@
 
     const urlFile = "https://raw.githubusercontent.com/eif-courses/moodle-java/master/Sheet1.csv";
 
-    const url = "https://gist.githubusercontent.com/eif-courses/5af1746b1c160d8109d2ad219b8af889/raw/e4526ec701f4ffd421a56b13b82a652a2fb664c2/pakeitimai.csv";
+    const url = "https://gist.githubusercontent.com/eif-courses/5af1746b1c160d8109d2ad219b8af889/raw/c97f33c014f2ca8c7486105ec4369138484ec55f/pakeitimai.csv";
 
     d3.csv(url, function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -558,9 +558,9 @@
 
 
 
-                const urlRemove = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ aud+'&date='+dat+'&teacher='+teach+'&position='+pos+'&group='+gr+'&isremoved=true';
+                //const urlRemove = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ aud+'&date='+dat+'&teacher='+teach+'&position='+pos+'&group='+gr+'&isremoved=true';
 
-                fetch(urlRemove, {mode:"no-cors"});
+               // fetch(urlRemove, {mode:"no-cors"});
 
                 //console.log(cc);
                 let playersRef = firebase.database().ref("user-posts/");
@@ -613,9 +613,9 @@
         updates['/user-posts/' + newPostKey] = postData;
 
 
-        const url = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ auditorija+'&date='+date+'&teacher='+destytojas+'&position='+paskaita+'&group='+grupe.replace(/<[^>]*>?/gm, '').replace(',',' ')+'&isremoved=false';
+        //const url = 'https://zurnalaskelione.lt/pakeitimai/index.php?classroom='+ auditorija+'&date='+date+'&teacher='+destytojas+'&position='+paskaita+'&group='+grupe.replace(/<[^>]*>?/gm, '').replace(',',' ')+'&isremoved=false';
 
-        fetch(url, {mode:"no-cors"});
+        //fetch(url, {mode:"no-cors"});
 
         let grupeBEHTML = postData.grupe.replace(/<[^>]*>?/gm, '');
 
